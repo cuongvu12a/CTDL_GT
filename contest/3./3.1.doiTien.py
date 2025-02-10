@@ -21,13 +21,25 @@ def handle(*, cost, value, curr = None, index = 0):
     return -1
 
 def main():
-    # cost = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1]
-    cost = [65, 25, 10]
-    print(handle(cost=cost, value=70)) # 1
-    # print(handle(cost=cost, value=121)) # 2
+    cost = list(map(int, '1 2 5 10 20 50 100 200 500 1000'.split()))
+    cost.sort(reverse=True)
     
+    n = int(input())
+    while n > 0:
+        n -= 1
+        value = int(input())
+        print(handle(cost=cost, value=value))
 main()
 
 ''' 
-    3.6 ...
+Input:
+---
+2
+70
+121
+
+---
+Output:
+2
+3
 '''
