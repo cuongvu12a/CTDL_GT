@@ -1,5 +1,3 @@
-from queue import PriorityQueue
-
 def main():
     n = int(input())
     while n > 0:
@@ -10,27 +8,42 @@ def main():
         for c in s:
             if c in chars:
                 chars[c] += 1
-                # if chars[c] > maxLen:
-                #     maxLen = chars[c]
             else:
                 chars[c] = 1
         
-        pq = PriorityQueue()
+        nums = []
         for c in chars:
-            pq.put((-chars[c], chars[c]))
-            
-        print(pq.get())
+            nums.append(chars[c])            
 
+        nums.sort()
+        max = nums.pop(-1)
+        for i in range(max - 1): 
+            temp = d - 1
+            for idx in range(len(nums)):
+                if temp == 0:
+                    break
+                if not nums[idx] == 0:
+                    nums[idx] -= 1
+                    temp -= 1
+            
+            if temp != 0:
+                print(-1)
+                break
+        else:
+            print(1)
+            
+                
+        
 main()
 
 '''
 Input:
 ---
 2
-2
-aaaabbcc
-2
-aaaabbbc
+3
+abcabcabca
+3
+abcabcabba
 
 ---
 Output:
