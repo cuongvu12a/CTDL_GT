@@ -1,1 +1,0 @@
-{"name":"Local: 4","url":"/Users/cuongvu/workspace/ctdl_gt/contest/4./4.25.fibonaci.py","tests":[{"id":1743502068182,"input":"2\n6 4\n8 19","output":"A\nB"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/cuongvu/workspace/ctdl_gt/contest/4./4.25.fibonaci.py","group":"local","local":true}
