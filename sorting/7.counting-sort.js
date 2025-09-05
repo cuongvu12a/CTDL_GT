@@ -14,7 +14,7 @@ function countingSort(input) {
   const results = [];
 
   for (const value of input) {
-    counters[value] = (counters[value] ?? 0) + 1;
+    counters[value] = (counters[value] || 0) + 1;
   }
 
   console.log("Step 1:", { counters });
