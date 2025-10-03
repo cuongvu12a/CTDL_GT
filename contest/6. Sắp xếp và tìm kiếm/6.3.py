@@ -1,38 +1,3 @@
-"""
-BÀI 3. Sorting 3
-
-Đề bài:
-Cho mảng A[] gồm n phần tử.  
-Hãy tìm số phép đổi chỗ ít nhất giữa các phần tử của mảng để mảng A[] được sắp xếp tăng dần.  
-
-Ví dụ:
-A = [4, 3, 2, 1]  
-=> Ta cần ít nhất 2 phép đổi chỗ: 
-   - Swap(A[0], A[3]) 
-   - Swap(A[1], A[2])  
-
-Input:
-- Dòng đầu tiên: số lượng bộ test T (1 ≤ T ≤ 100).
-- Với mỗi test:
-    + Dòng đầu tiên: n (số phần tử của mảng, 1 ≤ n ≤ 10^3).
-    + Dòng tiếp: n số nguyên A[i], cách nhau bởi khoảng trắng.
-
-Output:
-- Với mỗi test, in ra số phép đổi chỗ ít nhất để sắp xếp mảng.
-
-Ví dụ:
-Input:
-2
-4
-4 3 2 1
-5
-1 5 4 3 2
-
-Output:
-2
-2
-"""
-
 def min_swaps_to_sort(arr):
     n = len(arr)
     # Tạo danh sách (giá trị, chỉ số gốc)
