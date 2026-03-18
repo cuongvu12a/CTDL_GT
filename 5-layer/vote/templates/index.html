@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bầu chọn</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; background: #f0f4f8; }
+    h1 { font-size: 2.5rem; color: #333; }
+    .options { display: flex; justify-content: center; gap: 40px; margin-top: 40px; }
+    button {
+      padding: 30px 60px;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    button:hover { transform: scale(1.05); }
+    .btn-a { background: #ff6b6b; color: white; }
+    .btn-b { background: #4ecdc4; color: white; }
+    .result { margin-top: 30px; font-size: 1.2rem; color: #555; }
+  </style>
+</head>
+<body>
+  <h1>Bạn thích gì hơn?</h1>
+  <form method="POST" action="/">
+    <div class="options">
+      <button class="btn-a" name="vote" value="a">Meo 🐱</button>
+      <button class="btn-b" name="vote" value="b">Cho 🐶</button>
+    </div>
+  </form>
+  {% if vote %}
+  <p class="result">
+    Ban da bau cho: <strong>{{ 'Meo' if vote == 'a' else 'Cho' }}</strong>
+  </p>
+  {% endif %}
+</body>
+</html>

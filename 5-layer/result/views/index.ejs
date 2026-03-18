@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Ket qua bau chon</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; background: #f0f4f8; }
+    h1 { font-size: 2.5rem; color: #333; }
+    .bars { display: flex; justify-content: center; gap: 60px; margin-top: 40px; align-items: flex-end; height: 200px; }
+    .bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .bar {
+      width: 100px;
+      min-height: 10px;
+      border-radius: 8px 8px 0 0;
+      transition: height 0.5s ease;
+    }
+    .bar-a { background: #ff6b6b; }
+    .bar-b { background: #4ecdc4; }
+    .label { font-size: 1.3rem; font-weight: bold; }
+    .count { font-size: 2rem; font-weight: bold; color: #333; }
+    .total { margin-top: 20px; color: #777; }
+  </style>
+</head>
+<body>
+  <h1>Ket qua bau chon</h1>
+  <div class="bars">
+    <div class="bar-wrap">
+      <span class="count" id="count-a">0</span>
+      <div class="bar bar-a" id="bar-a" style="height: 10px"></div>
+      <span class="label">Meo</span>
+    </div>
+    <div class="bar-wrap">
+      <span class="count" id="count-b">0</span>
+      <div class="bar bar-b" id="bar-b" style="height: 10px"></div>
+      <span class="label">Cho</span>
+    </div>
+  </div>
+  <p class="total" id="total">Tong so phieu: 0</p>
+
+  <script>
+    const socket = io();
+    socket.on('results', ({ a, b }) => {
+      const total = a + b;
+      document.getElementById('count-a').textContent = a;
+      document.getElementById('count-b').textContent = b;
+      document.getElementById('total').textContent = 'Tong so phieu: ' + total;
+
+      const maxH = 180;
+      const aH = total > 0 ? Math.max(10, (a / total) * maxH) : 10;
+      const bH = total > 0 ? Math.max(10, (b / total) * maxH) : 10;
+      document.getElementById('bar-a').style.height = aH + 'px';
+      document.getElementById('bar-b').style.height = bH + 'px';
+    });
+  </script>
+</body>
+</html>
